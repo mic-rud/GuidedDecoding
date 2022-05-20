@@ -1,6 +1,6 @@
 # GuidedDecoding
 Accompaning repository for the 2022 ICRA paper "Lightweight  Monocular  Depth  Estimation  through  Guided  Decoding"
-The following sections will describe the usage:
+
 # Training
 ## Preparing NYU Depth V2
 We used a Subset of NYU Depth V2 designed and prepared by Alhashim et al. (https://github.com/ialhashim/DenseDepth)
@@ -39,18 +39,28 @@ You can select from the following options:
 We performed our evaluation on the NVIDIA Jetson Nano and the NVIDIA Xavier NX, using the following dependencies:
 
 Jetpack: 4.5.1
+
 CUDA: 10.2
+
 CUDNN: 8.0.0
+
 Python: 3.6.9
+
 tensorRT: 7.1.3
 
+
 PyTorch: 1.8.0
+
 torchvision: 0.9.1
 
 torch2trt: 0.2.0
 
-Installing PyTorch and torchvision, refer to this post:
-Installing torch2trt: 
+
+Installing PyTorch and torchvision, refer to this post: https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-11-now-available/72048
+
+Installing torch2trt: https://github.com/NVIDIA-AI-IOT/torch2trt
+
+You might need to increase SWAP memory for the tensorRT conversion to 4GB: https://github.com/JetsonHacksNano/resizeSwapMemory
 
 ## Trained weights
 | Dataset  | Resolution | Model-Version |
