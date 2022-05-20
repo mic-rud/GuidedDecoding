@@ -38,11 +38,16 @@ You can select from the following options:
 # Inference and deployment
 We performed our evaluation on the NVIDIA Jetson Nano and the NVIDIA Xavier NX, using the following dependencies:
 
-Jetpack
-tensorRT
-PyTorch
-torchvision
-torch2trt ()
+Jetpack: 4.5.1
+CUDA: 10.2
+CUDNN: 8.0.0
+Python: 3.6.9
+tensorRT: 7.1.3
+
+PyTorch: 1.8.0
+torchvision: 0.9.1
+
+torch2trt: 0.2.0
 
 Installing PyTorch and torchvision, refer to this post:
 Installing torch2trt: 
