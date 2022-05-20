@@ -71,6 +71,8 @@ By selecting from the following options:
 ```
 
 # Training
+
+You will need the pretrained weights for DDRNet-23 slim, which can be downloaded [here](https://drive.google.com/file/d/1mg5tMX7TJ9ZVcAiGSB4PEihPtrJyalB4/view) or acquired from the [official repository](https://github.com/ydhongHIT/DDRNet)
 ## Preparing NYU Depth V2
 We used a Subset of NYU Depth V2 designed and prepared by Alhashim et al. (https://github.com/ialhashim/DenseDepth)
 
