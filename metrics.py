@@ -39,10 +39,6 @@ class Result(object):
         self.data_time, self.gpu_time = data_time, gpu_time
 
     def evaluate(self, output, target):
-        valid_mask = (target>0.0) & (target<80.0)
-
-        output = output[valid_mask]
-        target = target[valid_mask]
         abs_diff = (output - target).abs()
 
         self.mse = float((torch.pow(abs_diff, 2)).mean())
