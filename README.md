@@ -5,7 +5,7 @@ Accompaning repository for the 2022 ICRA paper "Lightweight  Monocular  Depth  E
 ## Preparing NYU Depth V2
 We used a Subset of NYU Depth V2 designed and prepared by Alhashim et al. (https://github.com/ialhashim/DenseDepth)
 
-To train, download the dataset linked in their repository and store it at an appropriate direction.
+To train, download the dataset linked in their repository. No need to unpack, the dataloader loads the compressed data.
 
 ## Preparing KITTI (Training)
 Coming soon!
@@ -21,7 +21,7 @@ For the evaluation, download the already prepared testsets from here:
 
 [KITTI](https://drive.google.com/file/d/1EZ8hBSwiudUnpYvgC1-Z6iHSyeWaPRfx/view?usp=sharing)
 
-and unpack them to a desired location.
+Unpack the data for Evaluation
 
 ```console
 run main.py --eval --dataset DATASET --resolution RESOLUTION --model MODEL_NAME --test_path PATH_TO_TEST_DATA --num_workers=NUM_WORKERS --save_results PATH_TO_RESULTS
