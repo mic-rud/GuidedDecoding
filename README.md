@@ -8,17 +8,17 @@ We used a Subset of NYU Depth V2 designed and prepared by Alhashim et al. (https
 To train, download the dataset linked in their repository and store it at an appropriate direction.
 
 ## Preparing KITTI (Training)
-TODO : Download data set
+Coming soon!
 
 ## Training procedure
 ```console
 run main.py --train --dataset DATASET --resolution RESOLUTION --model MODEL_NAME --data_path PATH_TO_TRAINING_DATA --num_workers=NUM_WORKERS --save_checkpoint PATH_TO_CHECKPOINTS
 ```
-
 ## Evaluation procedure (on GPU)
 For the evaluation, download the already prepared testsets from here:
 
 [NYU Depth V2](https://drive.google.com/file/d/1hXvznCAa26bNBPGZJH1DI2siVxmQlm0W/view?usp=sharing)
+
 [KITTI](https://drive.google.com/file/d/1EZ8hBSwiudUnpYvgC1-Z6iHSyeWaPRfx/view?usp=sharing)
 
 and unpack them to a desired location.
