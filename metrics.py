@@ -9,6 +9,10 @@ import torch
 import math
 import numpy as np
 
+from config import SEED
+
+torch.manual_seed(SEED)
+
 def log10(x):
       """Convert a new tensor with the base-10 logarithm of the elements of x. """
       return torch.log(x) / math.log(10)
@@ -71,7 +75,7 @@ class AverageMeter(object):
 
         self.sum_irmse, self.sum_imae = 0, 0
         self.sum_mse, self.sum_rmse, self.sum_mae = 0, 0, 0
-        self.sum_rmse_log
+        self.sum_rmse_log = 0
         self.sum_absrel, self.sum_lg10 = 0, 0
         self.sum_delta1, self.sum_delta2, self.sum_delta3 = 0, 0, 0
         self.sum_data_time, self.sum_gpu_time = 0, 0
