@@ -9,8 +9,10 @@ https://github.com/ialhashim/DenseDepth
 
 import torch
 import torch.nn.functional as F
-
 from math import exp
+from config import SEED
+
+torch.manual_seed(SEED)
 
 class Depth_Loss():
     def __init__(self, alpha, beta, gamma, maxDepth=10.0):
