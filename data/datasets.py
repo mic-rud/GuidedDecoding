@@ -1,4 +1,3 @@
-import os
 import random
 
 import numpy
@@ -6,7 +5,6 @@ import torch
 from torch.utils.data import DataLoader
 
 from config import SEED
-from data.kitti import KITTIDataset
 from data.nyu_reduced import get_NYU_dataset
 
 torch.manual_seed(SEED)
@@ -24,11 +22,7 @@ def get_dataloader(dataset_name,
                    batch_size=8,
                    workers=4,
                    uncompressed=False):
-    if dataset_name == 'kitti':
-        dataset = KITTIDataset(path,
-                split,
-                resolution=resolution)
-    elif dataset_name == 'nyu_reduced':
+    if dataset_name == 'nyu_reduced':
         dataset = get_NYU_dataset(path,
                 split,
                 resolution=resolution,
