@@ -14,7 +14,6 @@ from metrics import AverageMeter, Result
 from data import transforms
 
 max_depths = {
-    'kitti': 80.0,
     'nyu' : 10.0,
     'nyu_reduced' : 10.0,
 }
@@ -22,15 +21,12 @@ nyu_res = {
     'full' : (480, 640),
     'half' : (240, 320),
     'mini' : (224, 224)}
-kitti_res = {
-    'full' : (384, 1280),
-    'half' : (192, 640)}
+
 resolutions = {
     'nyu' : nyu_res,
     'nyu_reduced' : nyu_res,
-    'kitti' : kitti_res}
+    }
 crops = {
-    'kitti' : [128, 381, 45, 1196],
     'nyu' : [20, 460, 24, 616],
     'nyu_reduced' : [20, 460, 24, 616]}
 
@@ -51,8 +47,8 @@ def get_args():
     parser.add_argument('--dataset',
                         type=str,
                         help='dataset for training',
-                        choices=['kitti', 'nyu', 'nyu_reduced'],
-                        default='kitti')
+                        choices=['nyu', 'nyu_reduced'],
+                        default='nyu_reduced')
     parser.add_argument('--resolution',
                         type=str,
                         help='Resolution of the images for training',

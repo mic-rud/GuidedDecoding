@@ -15,7 +15,6 @@ from data import transforms
 
 torch.manual_seed(SEED)
 max_depths = {
-    'kitti': 80.0,
     'nyu' : 10.0,
     'nyu_reduced' : 10.0,
 }
@@ -23,17 +22,11 @@ nyu_res = {
     'full' : (480, 640),
     'half' : (240, 320),
     'mini' : (224, 224)}
-kitti_res = {
-    'full' : (384, 1280),
-    'tu_small' : (128, 416),
-    'tu_big' : (228, 912),
-    'half' : (192, 640)}
+
 resolutions = {
     'nyu' : nyu_res,
-    'nyu_reduced' : nyu_res,
-    'kitti' : kitti_res}
+    'nyu_reduced' : nyu_res,}
 crops = {
-    'kitti' : [128, 381, 45, 1196],
     'nyu' : [20, 460, 24, 616],
     'nyu_reduced' : [20, 460, 24, 616]}
 
@@ -117,14 +110,6 @@ class Evaluater():
 
                 prediction = upscale_depth(prediction)
                 prediction_flip = upscale_depth(prediction_flip)
-
-                if self.dataset == 'kitti':
-
-
-                    gt_height, gt_width = gt.shape[-2:] 
-
-                    self.crop = np.array([0.3324324 * gt_height,  0.91351351 * gt_height,
-                                          0.0359477 * gt_width,   0.96405229 * gt_width]).astype(np.int32)
 
                 if i in self.visualize_images:
                     self.save_image_results(image, gt, prediction, i)
