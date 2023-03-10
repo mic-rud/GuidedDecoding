@@ -1,14 +1,17 @@
-import time
 import os
+import time
 
 import torch
 import torch.optim as optim
-from torch.utils.data import DataLoader
+from tqdm import tqdm
 
+from config import SEED
 from data import datasets
-from model import loader
 from losses import Depth_Loss
 from metrics import AverageMeter, Result
+from model import loader
+
+torch.manual_seed(SEED)
 
 max_depths = {
     'kitti': 80.0,
@@ -47,7 +50,7 @@ class Trainer():
                                                  resolution=args.resolution,
                                                  workers=args.num_workers)
         self.val_loader = datasets.get_dataloader(args.dataset,
-                                                path=args.data_path,
+                                                path=args.data_path.replace('_train', '_test'),
                                                 split='val',
                                                 augmentation=args.eval_mode,
                                                 batch_size=args.batch_size,
@@ -89,7 +92,7 @@ class Trainer():
         self.model.train()
         accumulated_loss = 0.0
 
-        for i, data in enumerate(self.train_loader):
+        for i, data in enumerate(tqdm(self.train_loader)):
             image, gt = self.unpack_and_move(data)
             self.optimizer.zero_grad()
 
@@ -101,7 +104,7 @@ class Trainer():
 
             accumulated_loss += loss_value.item()
 
-        #Report 
+        #Report
         current_time = time.strftime('%H:%M', time.localtime())
         average_loss = accumulated_loss / (len(self.train_loader.dataset) + 1)
         print('{} - Average Training Loss: {:3.4f}'.format(current_time, average_loss))
@@ -135,7 +138,7 @@ class Trainer():
                 result.evaluate(prediction.data, gt.data)
                 average_meter.update(result, gpu_time, data_time, image.size(0))
 
-        #Report 
+        #Report
         avg = average_meter.average()
         current_time = time.strftime('%H:%M', time.localtime())
         average_loss = accumulated_loss / (len(self.val_loader.dataset) + 1)
@@ -180,7 +183,7 @@ class Trainer():
 
     def save_model(self):
         best_checkpoint_pth = os.path.join(self.checkpoint_pth,
-                                      'checkpoint_19.pth')
+                                      f'checkpoint_{self.max_epochs - 1}.pth')
         best_model_pth = os.path.join(self.results_pth,
                                      'best_model.pth')
 
