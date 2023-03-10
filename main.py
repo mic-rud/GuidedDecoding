@@ -38,20 +38,20 @@ def get_args():
     parser.add_argument('--data_path',
                         type=str,
                         help='path to train data',
-                        default=os.path.join(file_dir, 'kitti_comb'))
+                        default=None)
     parser.add_argument('--test_path',
                         type=str,
                         help='path to test data',
-                        default=os.path.join(file_dir, 'kitti_comb'))
+                        default=None)
     parser.add_argument('--dataset',
                         type=str,
                         help='dataset for training',
-                        choices=['kitti', 'nyu', 'nyu_reduced'],
-                        default='kitti')
+                        choices=['nyu', 'nyu_reduced'],
+                        default='nyu_reduced')
     parser.add_argument('--resolution',
                         type=str,
                         help='Resolution of the images for training',
-                        choices=['full', 'half', 'mini', 'tu_small', 'tu_big'],
+                        choices=['full', 'half', 'mini'],
                         default='half')
     parser.add_argument('--eval_mode',
                         type=str,

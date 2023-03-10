@@ -14,7 +14,6 @@ from model import loader
 torch.manual_seed(SEED)
 
 max_depths = {
-    'kitti': 80.0,
     'nyu_reduced' : 10.0,
 }
 
