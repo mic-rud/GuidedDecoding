@@ -5,12 +5,15 @@ import torch
 import torchvision
 import matplotlib.pyplot as plt
 import numpy as np
+from tqdm import tqdm
 
+from config import SEED
 from data import datasets
 from model import loader
 from metrics import AverageMeter, Result
 from data import transforms
 
+torch.manual_seed(SEED)
 max_depths = {
     'kitti': 80.0,
     'nyu' : 10.0,
@@ -81,7 +84,7 @@ class Evaluater():
     def evaluate(self):
         self.model.eval()
         average_meter = AverageMeter()
-        for i, data in enumerate(self.test_loader):
+        for i, data in enumerate(tqdm(self.test_loader)):
             t0 = time.time()
             image, gt = data
             packed_data = {'image': image[0], 'depth':gt[0]}
