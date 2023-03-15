@@ -71,7 +71,7 @@ class AverageMeter(object):
 
         self.sum_irmse, self.sum_imae = 0, 0
         self.sum_mse, self.sum_rmse, self.sum_mae = 0, 0, 0
-        self.sum_rmse_log
+        self.sum_rmse_log = 0
         self.sum_absrel, self.sum_lg10 = 0, 0
         self.sum_delta1, self.sum_delta2, self.sum_delta3 = 0, 0, 0
         self.sum_data_time, self.sum_gpu_time = 0, 0
