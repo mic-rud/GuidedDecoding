@@ -23,7 +23,7 @@ For the evaluation, download the already prepared testsets from here:
 Unpack the data for Evaluation
 
 ```console
-run main.py --eval --dataset DATASET --resolution RESOLUTION --model MODEL_NAME --test_path PATH_TO_TEST_DATA --num_workers=NUM_WORKERS --save_results PATH_TO_RESULTS
+python main.py --eval --dataset DATASET --resolution RESOLUTION --model MODEL_NAME --test_path PATH_TO_TEST_DATA --num_workers=NUM_WORKERS --save_results PATH_TO_RESULTS
 ```
 
 You can select from the following options:
