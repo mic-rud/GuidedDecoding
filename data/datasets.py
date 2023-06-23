@@ -17,7 +17,7 @@ def get_dataloader(dataset_name,
                    interpolation='linear', 
                    batch_size=8,
                    workers=4, 
-                   uncompressed=False):
+                   uncompressed=True):
     if dataset_name == 'kitti':
         dataset = KITTIDataset(path, 
                 split, 

@@ -118,7 +118,7 @@ def val_transform(resolution):
     return transform
 
 
-def get_NYU_dataset(zip_path, split, resolution='full', uncompressed=False):
+def get_NYU_dataset(zip_path, split, resolution='full', uncompressed=True):
     resolution = resolution_dict[resolution]
     if split == 'train':
         data, nyu2_train, nyu2_test = loadZipToMem(zip_path)
