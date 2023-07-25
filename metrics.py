@@ -30,7 +30,7 @@ class Result(object):
         self.delta1, self.delta2, self.delta3 = 0, 0, 0
         self.data_time, self.gpu_time = 0, 0
 
-    def update(self, irmse, imae, mse, rmse, rmse_log, mae, absrel, lg10, delta1, delta2, delta3, gpu_time, data_time):
+    def update(self, irmse, imae, mse, rmse, mae, rmse_log, absrel, lg10, delta1, delta2, delta3, gpu_time, data_time):
         self.irmse, self.imae = irmse, imae
         self.mse, self.rmse, self.mae = mse, rmse, mae
         self.rmse_log = rmse_log
